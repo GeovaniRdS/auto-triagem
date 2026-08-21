@@ -30,7 +30,8 @@ jobs:
         run: docker save currencyservice:${{ github.sha }} | sudo k3s ctr images import -
 
       - name: Atualizar manifest com a tag da imagem
-        run: sed -i "s|image: currencyservice.*|image: currencyservice:${{ github.sha }}|" ../../../manifests/currencyservice.yaml
+        run: |
+          sed -i "s|image: currencyservice.*|image: currencyservice:${{ github.sha }}|" ../../../manifests/currencyservice.yaml
 
       - name: Deploy no cluster Kubernetes
         run: kubectl apply -f manifests/currencyservice.yaml
