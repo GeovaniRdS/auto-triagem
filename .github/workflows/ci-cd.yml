@@ -1,0 +1,41 @@
+name: CI/CD - currencyservice
+
+on:
+  push:
+    paths:
+      - 'ci-service/src/currencyservice/**'
+  workflow_dispatch:
+
+jobs:
+  build-test-deploy:
+    runs-on: self-hosted
+    defaults:
+      run:
+        working-directory: ci-service/src/currencyservice
+
+    steps:
+      - name: Checkout codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Rodar testes
+        run: npm test
+
+      - name: Build da imagem Docker
+        run: docker build -t currencyservice:${{ github.sha }} .
+
+      - name: Importar imagem no containerd do k3s
+        run: docker save currencyservice:${{ github.sha }} | sudo k3s ctr images import -
+
+      - name: Atualizar manifest com a tag da imagem
+        run: sed -i "s|image: currencyservice.*|image: currencyservice:${{ github.sha }}|" ../../../manifests/currencyservice.yaml
+
+      - name: Deploy no cluster Kubernetes
+        run: kubectl apply -f manifests/currencyservice.yaml
+        working-directory: ${{ github.workspace }}
+
+      - name: Verificar rollout
+        run: kubectl rollout status deployment/currencyservice --timeout=120s
+        working-directory: ${{ github.workspace }}
