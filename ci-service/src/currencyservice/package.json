@@ -8,6 +8,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "pacote-que-nao-existe-xyz123": "1.0.0",
     "@google-cloud/profiler": "6.0.5",
     "@google-cloud/trace-agent": "8.0.0",
     "@grpc/grpc-js": "1.14.4",
