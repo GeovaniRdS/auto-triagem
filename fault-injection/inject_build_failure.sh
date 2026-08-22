@@ -23,10 +23,10 @@ case $VARIANT in
   3) sed -i '0,/"name"/{s/"name"/"name",/}' $PKG ;;
   4) sed -i 's|"@grpc/grpc-js"|"@grpc/grpc-j"|' $PKG ;;
   5) cp $SERVICE/Dockerfile /tmp/Dockerfile.backup
-     sed -i 's/FROM node:.*-alpine.*AS builder/FROM node:inexistente-99-alpine AS builder/' $SERVICE/Dockerfile ;;
+     sed -i 's/node:[0-9.]*-alpine@sha256:[a-f0-9]*/node:inexistente-99-alpine/' $SERVICE/Dockerfile ;;
 esac
 
-git add $PKG
+git add $PKG $SERVICE/Dockerfile
 git commit -m "fault-injection: build failure variante $VARIANT (amostra $SAMPLE_NUM)"
 git push
 
