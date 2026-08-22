@@ -7,3 +7,4 @@ sample_id,classe,run_id,log_path,timestamp
 06,build,32598620712,data/raw_logs/build/sample_06.log,2026-08-22T18:07:23-03:00
 007,build,32599504167,data/raw_logs/build/sample_007.log,2026-08-22T18:25:05-03:00
 008,build,32599681367,data/raw_logs/build/sample_008.log,2026-08-22T18:29:19-03:00
+009,build,32599729804,data/raw_logs/build/sample_009.log,2026-08-22T18:30:00-03:00
