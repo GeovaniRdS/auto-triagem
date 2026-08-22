@@ -55,7 +55,7 @@ if [ -f /tmp/Dockerfile.backup ]; then
   cp /tmp/Dockerfile.backup $SERVICE/Dockerfile
   rm /tmp/Dockerfile.backup
 fi
-git add $PKG $SERVICE/Dockerfile
+git add -A
 git commit -m "revert: fault-injection build failure amostra $SAMPLE_NUM"
 git push
 
