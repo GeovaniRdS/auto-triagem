@@ -20,6 +20,10 @@ cp $PKG $BACKUP   # guarda o estado limpo ANTES de sabotar
 case $VARIANT in
   1) sed -i 's/"dependencies": {/"dependencies": {\n    "pacote-que-nao-existe-xyz123": "1.0.0",/' $PKG ;;
   2) sed -i 's|"@grpc/grpc-js": "[^"]*"|"@grpc/grpc-js": "999.999.999"|' $PKG ;;
+  3) sed -i '0,/"name"/{s/"name"/"name",/}' $PKG ;;
+  4) sed -i 's|"@grpc/grpc-js"|"@grpc/grpc-j"|' $PKG ;;
+  5) cp $SERVICE/Dockerfile /tmp/Dockerfile.backup
+     sed -i 's/FROM node:.*-alpine.*AS builder/FROM node:inexistente-99-alpine AS builder/' $SERVICE/Dockerfile ;;
 esac
 
 git add $PKG
@@ -47,7 +51,11 @@ echo "${SAMPLE_NUM},build,${RUN_ID},${LOG_PATH},$(date -Iseconds)" >> data/datas
 
 # Restaura do backup, NÃO do git
 cp $BACKUP $PKG
-git add $PKG
+if [ -f /tmp/Dockerfile.backup ]; then
+  cp /tmp/Dockerfile.backup $SERVICE/Dockerfile
+  rm /tmp/Dockerfile.backup
+fi
+git add $PKG $SERVICE/Dockerfile
 git commit -m "revert: fault-injection build failure amostra $SAMPLE_NUM"
 git push
 

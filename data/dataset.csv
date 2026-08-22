@@ -1,2 +1,7 @@
 sample_id,classe,run_id,log_path,timestamp
 001,build,32597272406,data/raw_logs/build/sample_001.log,2026-08-22T17:46:54-03:00
+002,build,32598168789,data/raw_logs/build/sample_002.log,2026-08-22T17:57:30-03:00
+03,build,32598478330,data/raw_logs/build/sample_03.log,2026-08-22T18:03:45-03:00
+04,build,32598494591,data/raw_logs/build/sample_04.log,2026-08-22T18:04:40-03:00
+05,build,32598538057,data/raw_logs/build/sample_05.log,2026-08-22T18:06:22-03:00
+06,build,32598620712,data/raw_logs/build/sample_06.log,2026-08-22T18:07:23-03:00
