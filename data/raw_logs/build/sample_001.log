@@ -1,0 +1,13 @@
+build-test-deploy	Instalar dependencias	﻿2026-08-22T20:44:40.0795272Z ##[group]Run npm install
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:40.0795612Z [36;1mnpm install[0m
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:40.0874061Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:40.0874439Z ##[endgroup]
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5592624Z npm error code E404
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5595106Z npm error 404 Not Found - GET https://registry.npmjs.org/pacote-que-nao-existe-xyz123 - Not found
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5595683Z npm error 404
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5595965Z npm error 404  'pacote-que-nao-existe-xyz123@1.0.0' is not in this registry.
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5596294Z npm error 404
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5596816Z npm error 404 Note that you can also install from a
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5597136Z npm error 404 tarball, folder, http url, or git url.
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5604449Z npm error A complete log of this run can be found in: /home/ge/.npm/_logs/2026-08-22T20_44_40_281Z-debug-0.log
+build-test-deploy	Instalar dependencias	2026-08-22T20:44:41.5703315Z ##[error]Process completed with exit code 1.
