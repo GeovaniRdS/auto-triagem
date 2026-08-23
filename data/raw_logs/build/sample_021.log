@@ -1,0 +1,13 @@
+build-test-deploy	Instalar dependencias	﻿2026-08-23T19:30:52.8805721Z ##[group]Run npm install
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:52.8806795Z [36;1mnpm install[0m
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:52.8832983Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:52.8833966Z ##[endgroup]
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4292844Z npm error code E404
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4295158Z npm error 404 Not Found - GET https://registry.npmjs.org/@grpc%2fgrpc-j - Not found
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4297512Z npm error 404
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4299026Z npm error 404  '@grpc/grpc-j@1.14.4' is not in this registry.
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4300883Z npm error 404
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4302255Z npm error 404 Note that you can also install from a
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4304763Z npm error 404 tarball, folder, http url, or git url.
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4306710Z npm error A complete log of this run can be found in: /home/ge/.npm/_logs/2026-08-23T19_30_52_945Z-debug-0.log
+build-test-deploy	Instalar dependencias	2026-08-23T19:30:53.4397686Z ##[error]Process completed with exit code 1.
