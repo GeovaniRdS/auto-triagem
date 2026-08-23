@@ -58,3 +58,4 @@ sample_id,classe,run_id,log_path,timestamp
 027,teste,32663796419,data/raw_logs/teste/sample_027.log,2026-08-23T17:15:20-03:00
 028,teste,32663849896,data/raw_logs/teste/sample_028.log,2026-08-23T17:16:14-03:00
 029,teste,32663896464,data/raw_logs/teste/sample_029.log,2026-08-23T17:17:13-03:00
+030,teste,32663945264,data/raw_logs/teste/sample_030.log,2026-08-23T17:18:12-03:00
