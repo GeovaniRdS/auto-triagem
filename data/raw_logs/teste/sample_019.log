@@ -1,0 +1,23 @@
+build-test-deploy	Rodar testes	﻿2026-08-23T20:06:49.6193814Z ##[group]Run npm test
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.6194090Z [36;1mnpm test[0m
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.6212949Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.6213177Z ##[endgroup]
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7267729Z 
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7268545Z > grpc-currency-service@0.1.0 test
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7269079Z > node test.js
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7269381Z 
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7552839Z /home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/test.js:10
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7554041Z console.log('✅ Todos os testes passaram';
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7554529Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7554827Z 
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7554996Z SyntaxError: missing ) after argument list
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7555753Z     at wrapSafe (node:internal/modules/cjs/loader:1464:18)
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7556344Z     at Module._compile (node:internal/modules/cjs/loader:1495:20)
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7557454Z     at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7558131Z     at Module.load (node:internal/modules/cjs/loader:1266:32)
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7558777Z     at Module._load (node:internal/modules/cjs/loader:1091:12)
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7559516Z     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7560189Z     at node:internal/main/run_main_module:28:49
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7560489Z 
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7560605Z Node.js v20.20.2
+build-test-deploy	Rodar testes	2026-08-23T20:06:49.7654011Z ##[error]Process completed with exit code 1.
