@@ -1,0 +1,29 @@
+build-test-deploy	Rodar testes	﻿2026-08-23T19:56:10.5730209Z ##[group]Run npm test
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.5730520Z [36;1mnpm test[0m
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.5749865Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.5750088Z ##[endgroup]
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.6864482Z 
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.6864923Z > grpc-currency-service@0.1.0 test
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.6865233Z > node test.js
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.6865347Z 
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7174057Z node:internal/assert/utils:281
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7175010Z     throw err;
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7176078Z     ^
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7177053Z 
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7178005Z AssertionError [ERR_ASSERTION]: currency_conversion.json não deve estar vazio
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7178677Z     at Object.<anonymous> (/home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/test.js:5:8)
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7179435Z     at Module._compile (node:internal/modules/cjs/loader:1521:14)
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7179789Z     at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7180122Z     at Module.load (node:internal/modules/cjs/loader:1266:32)
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7180495Z     at Module._load (node:internal/modules/cjs/loader:1091:12)
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7180883Z     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7181254Z     at node:internal/main/run_main_module:28:49 {
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7181499Z   generatedMessage: false,
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7181690Z   code: 'ERR_ASSERTION',
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7181884Z   actual: false,
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7182048Z   expected: true,
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7182520Z   operator: '=='
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7182729Z }
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7182807Z 
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7182880Z Node.js v20.20.2
+build-test-deploy	Rodar testes	2026-08-23T19:56:10.7272203Z ##[error]Process completed with exit code 1.
