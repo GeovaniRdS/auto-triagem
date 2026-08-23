@@ -20,3 +20,4 @@ sample_id,classe,run_id,log_path,timestamp
 019,build,32661353864,data/raw_logs/build/sample_019.log,2026-08-23T16:29:25-03:00
 020,build,32661393485,data/raw_logs/build/sample_020.log,2026-08-23T16:30:13-03:00
 021,build,32661438927,data/raw_logs/build/sample_021.log,2026-08-23T16:31:03-03:00
+022,build,32661484860,data/raw_logs/build/sample_022.log,2026-08-23T16:32:02-03:00
