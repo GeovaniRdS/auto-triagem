@@ -1,0 +1,29 @@
+build-test-deploy	Rodar testes	﻿2026-08-23T20:04:51.9385695Z ##[group]Run npm test
+build-test-deploy	Rodar testes	2026-08-23T20:04:51.9385985Z [36;1mnpm test[0m
+build-test-deploy	Rodar testes	2026-08-23T20:04:51.9404388Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Rodar testes	2026-08-23T20:04:51.9404621Z ##[endgroup]
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0508807Z 
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0509817Z > grpc-currency-service@0.1.0 test
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0510306Z > node test.js
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0510615Z 
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0814953Z node:internal/assert/utils:281
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0815519Z     throw err;
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0815844Z     ^
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0816058Z 
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0816490Z AssertionError [ERR_ASSERTION]: USD deve existir no conjunto de moedas suportadas
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0817703Z     at Object.<anonymous> (/home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/test.js:8:8)
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0818767Z     at Module._compile (node:internal/modules/cjs/loader:1521:14)
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0819456Z     at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0820112Z     at Module.load (node:internal/modules/cjs/loader:1266:32)
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0821171Z     at Module._load (node:internal/modules/cjs/loader:1091:12)
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0821800Z     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0822259Z     at node:internal/main/run_main_module:28:49 {
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0822534Z   generatedMessage: false,
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0822755Z   code: 'ERR_ASSERTION',
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0822953Z   actual: false,
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0823141Z   expected: true,
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0823330Z   operator: '=='
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0823506Z }
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0823596Z 
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0823673Z Node.js v20.20.2
+build-test-deploy	Rodar testes	2026-08-23T20:04:52.0927908Z ##[error]Process completed with exit code 1.
