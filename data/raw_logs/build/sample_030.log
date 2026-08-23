@@ -1,0 +1,11 @@
+build-test-deploy	Instalar dependencias	﻿2026-08-23T19:39:02.7448516Z ##[group]Run npm install
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:02.7449517Z [36;1mnpm install[0m
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:02.7474353Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:02.7475482Z ##[endgroup]
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:03.0364990Z npm error code EJSONPARSE
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:03.0368305Z npm error path /home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/package.json
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:03.0373412Z npm error JSON.parse Expected ':' after property name in JSON at position 10 while parsing near "{\n  \"name\",: \"grpc-currency-se..."
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:03.0377752Z npm error JSON.parse Failed to parse JSON data.
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:03.0379506Z npm error JSON.parse Note: package.json must be actual JSON, not just JavaScript.
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:03.0381901Z npm error A complete log of this run can be found in: /home/ge/.npm/_logs/2026-08-23T19_39_02_811Z-debug-0.log
+build-test-deploy	Instalar dependencias	2026-08-23T19:39:03.0462620Z ##[error]Process completed with exit code 1.
