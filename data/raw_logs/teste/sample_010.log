@@ -1,0 +1,33 @@
+build-test-deploy	Rodar testes	﻿2026-08-23T19:58:03.4259000Z ##[group]Run npm test
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.4259476Z [36;1mnpm test[0m
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.4278463Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.4278683Z ##[endgroup]
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5362660Z 
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5363488Z > grpc-currency-service@0.1.0 test
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5364070Z > node test.js
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5364381Z 
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5650757Z node:internal/modules/cjs/loader:1210
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5651385Z   throw err;
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5651891Z   ^
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5652168Z 
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5652713Z Error: Cannot find module 'modulo-que-nao-existe-xyz'
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5653236Z Require stack:
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5653834Z - /home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/test.js
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5654781Z     at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5655406Z     at Module._load (node:internal/modules/cjs/loader:1038:27)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5655954Z     at Module.require (node:internal/modules/cjs/loader:1289:19)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5656575Z     at require (node:internal/modules/helpers:182:18)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5657288Z     at Object.<anonymous> (/home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/test.js:2:1)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5657813Z     at Module._compile (node:internal/modules/cjs/loader:1521:14)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5658163Z     at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5658501Z     at Module.load (node:internal/modules/cjs/loader:1266:32)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5658817Z     at Module._load (node:internal/modules/cjs/loader:1091:12)
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5659204Z     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12) {
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5659566Z   code: 'MODULE_NOT_FOUND',
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5659751Z   requireStack: [
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5660083Z     '/home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/test.js'
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5660459Z   ]
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5660599Z }
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5660678Z 
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5660739Z Node.js v20.20.2
+build-test-deploy	Rodar testes	2026-08-23T19:58:03.5754437Z ##[error]Process completed with exit code 1.
