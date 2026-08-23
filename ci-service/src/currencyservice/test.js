@@ -1,5 +1,4 @@
 const assert = require('node:assert');
-require('modulo-que-nao-existe-xyz');
 const data = require('./data/currency_conversion.json');
 
 // Teste 1: garante que o arquivo de conversão de moedas existe e não está vazio
