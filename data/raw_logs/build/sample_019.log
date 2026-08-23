@@ -1,0 +1,10 @@
+build-test-deploy	Instalar dependencias	﻿2026-08-23T19:29:14.2572519Z ##[group]Run npm install
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.2573487Z [36;1mnpm install[0m
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.2600167Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.2601092Z ##[endgroup]
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.6622127Z npm error code ETARGET
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.6624560Z npm error notarget No matching version found for @grpc/grpc-js@999.999.999.
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.6627683Z npm error notarget In most cases you or one of your dependencies are requesting
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.6630469Z npm error notarget a package version that doesn't exist.
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.6641268Z npm error A complete log of this run can be found in: /home/ge/.npm/_logs/2026-08-23T19_29_14_321Z-debug-0.log
+build-test-deploy	Instalar dependencias	2026-08-23T19:29:14.6728071Z ##[error]Process completed with exit code 1.
