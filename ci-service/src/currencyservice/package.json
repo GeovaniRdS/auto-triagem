@@ -1,5 +1,5 @@
 {
-  "name": "grpc-currency-service",
+  "name",: "grpc-currency-service",
   "version": "0.1.0",
   "description": "A gRPC currency conversion microservice",
   "repository": "https://github.com/GoogleCloudPlatform/microservices-demo",
