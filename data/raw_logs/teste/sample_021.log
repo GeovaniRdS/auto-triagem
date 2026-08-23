@@ -1,0 +1,23 @@
+build-test-deploy	Rodar testes	﻿2026-08-23T20:08:45.5779866Z ##[group]Run npm test
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.5780139Z [36;1mnpm test[0m
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.5801114Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.5801369Z ##[endgroup]
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.6869486Z 
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.6870066Z > grpc-currency-service@0.1.0 test
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.6870369Z > node test.js
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.6870551Z 
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7157781Z /home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/test.js:2
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7158304Z undefined.propriedadeInexistente();
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7158549Z           ^
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7158720Z 
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7158979Z TypeError: Cannot read properties of undefined (reading 'propriedadeInexistente')
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7159686Z     at Object.<anonymous> (/home/ge/actions-runner/_work/auto-triagem/auto-triagem/ci-service/src/currencyservice/test.js:2:11)
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7160253Z     at Module._compile (node:internal/modules/cjs/loader:1521:14)
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7160611Z     at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7161024Z     at Module.load (node:internal/modules/cjs/loader:1266:32)
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7161323Z     at Module._load (node:internal/modules/cjs/loader:1091:12)
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7161742Z     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7162143Z     at node:internal/main/run_main_module:28:49
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7162309Z 
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7162374Z Node.js v20.20.2
+build-test-deploy	Rodar testes	2026-08-23T20:08:45.7271850Z ##[error]Process completed with exit code 1.
