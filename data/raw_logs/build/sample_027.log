@@ -1,0 +1,14 @@
+build-test-deploy	Build da imagem Docker	﻿2026-08-23T19:36:33.7061874Z ##[group]Run docker build -t currencyservice:d57da9e5592d7e2ae39517be6d876324de1fce00 .
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7062531Z [36;1mdocker build -t currencyservice:d57da9e5592d7e2ae39517be6d876324de1fce00 .[0m
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7083246Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7083565Z ##[endgroup]
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7632531Z DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7633133Z             Install the buildx component to build images with BuildKit:
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7633564Z             https://docs.docker.com/go/buildx/
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7633804Z 
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7676073Z Sending build context to Docker daemon  163.8kB
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7676556Z 
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7709787Z Step 1/13 : ARG BUILDPLATFORM=linux/amd64
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:33.7710611Z Step 2/13 : FROM --platform=$BUILDPLATFORM node:inexistente-99-alpine AS builder
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:34.7546667Z failed to resolve reference "docker.io/library/node:inexistente-99-alpine": docker.io/library/node:inexistente-99-alpine: not found
+build-test-deploy	Build da imagem Docker	2026-08-23T19:36:34.7583170Z ##[error]Process completed with exit code 1.
