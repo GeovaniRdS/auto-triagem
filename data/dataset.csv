@@ -150,3 +150,4 @@ sample_id,classe,run_id,log_path,timestamp
 029,imagepullbackoff,32757739460,data/raw_logs/imagepullbackoff/sample_029.log,2026-08-24T14:39:10-03:00
 030,imagepullbackoff,32757883703,data/raw_logs/imagepullbackoff/sample_030.log,2026-08-24T14:40:46-03:00
 001,crashloopbackoff,32760575059,data/raw_logs/crashloopbackoff/sample_001.log,2026-08-24T15:08:45-03:00
+002,crashloopbackoff,32761092181,data/raw_logs/crashloopbackoff/sample_002.log,2026-08-24T15:13:55-03:00
