@@ -40,5 +40,5 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: Verificar rollout
-        run: kubectl rollout status deployment/currencyservice --timeout=120s
+        run: kubectl rollout status deployment/currencyservice --timeout=30s
         working-directory: ${{ github.workspace }}
