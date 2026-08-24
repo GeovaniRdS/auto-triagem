@@ -1,0 +1,10 @@
+build-test-deploy	Deploy no cluster Kubernetes	﻿2026-08-24T22:53:17.4861129Z ##[group]Run kubectl apply -f manifests/currencyservice.yaml
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:17.4861748Z [36;1mkubectl apply -f manifests/currencyservice.yaml[0m
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:17.4890313Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:17.4890608Z ##[endgroup]
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:17.9319024Z service/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:18.0113411Z The Deployment "currencyservice" is invalid: 
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:18.0114195Z serviceaccount/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:18.0115034Z * spec.template.metadata.labels: Invalid value: {"app":"currencyservice"}: `selector` does not match template `labels`
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:18.0116256Z * spec.selector: Invalid value: {"matchLabels":{"app":"currencyservice-boom"}}: field is immutable
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:53:18.0228250Z ##[error]Process completed with exit code 1.
