@@ -1,0 +1,75 @@
+build-test-deploy	Verificar rollout	﻿2026-08-24T17:30:46.2477179Z ##[group]Run kubectl rollout status deployment/currencyservice --timeout=30s
+build-test-deploy	Verificar rollout	2026-08-24T17:30:46.2477652Z [36;1mkubectl rollout status deployment/currencyservice --timeout=30s[0m
+build-test-deploy	Verificar rollout	2026-08-24T17:30:46.2504939Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Verificar rollout	2026-08-24T17:30:46.2505331Z ##[endgroup]
+build-test-deploy	Verificar rollout	2026-08-24T17:30:46.4297151Z Waiting for deployment "currencyservice" rollout to finish: 0 out of 1 new replicas have been updated...
+build-test-deploy	Verificar rollout	2026-08-24T17:30:46.7246218Z Waiting for deployment "currencyservice" rollout to finish: 1 old replicas are pending termination...
+build-test-deploy	Verificar rollout	2026-08-24T17:31:13.4915937Z error: timed out waiting for the condition
+build-test-deploy	Verificar rollout	2026-08-24T17:31:13.4987494Z ##[error]Process completed with exit code 1.
+
+=== kubectl describe pod (diagnóstico local, capturado direto do cluster) ===
+Name:             currencyservice-6898f5974d-8c6wx
+Namespace:        default
+Priority:         0
+Service Account:  currencyservice
+Node:             desktop-6t1gt23/172.30.163.109
+Start Time:       Mon, 24 Aug 2026 14:30:46 -0300
+Labels:           app=currencyservice
+                  pod-template-hash=6898f5974d
+Annotations:      <none>
+Status:           Pending
+IP:               10.42.0.30
+IPs:
+  IP:           10.42.0.30
+Controlled By:  ReplicaSet/currencyservice-6898f5974d
+Containers:
+  server:
+    Container ID:   
+    Image:          docker.io/library/nao-existe-nunca-123:latest
+    Image ID:       
+    Port:           7000/TCP (grpc)
+    Host Port:      0/TCP (grpc)
+    State:          Waiting
+      Reason:       ErrImagePull
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      100m
+      memory:   64Mi
+    Liveness:   grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      PORT:              7000
+      DISABLE_PROFILER:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-gb25v (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-gb25v:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  37s                default-scheduler  Successfully assigned default/currencyservice-6898f5974d-8c6wx to desktop-6t1gt23
+  Normal   Pulling    24s (x2 over 37s)  kubelet            spec.containers{server}: Pulling image "docker.io/library/nao-existe-nunca-123:latest"
+  Warning  Failed     23s (x2 over 36s)  kubelet            spec.containers{server}: Failed to pull image "docker.io/library/nao-existe-nunca-123:latest": failed to pull and unpack image "docker.io/library/nao-existe-nunca-123:latest": failed to resolve reference "docker.io/library/nao-existe-nunca-123:latest": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+  Warning  Failed     23s (x2 over 36s)  kubelet            spec.containers{server}: Error: ErrImagePull
+  Normal   BackOff    10s (x2 over 35s)  kubelet            spec.containers{server}: Back-off pulling image "docker.io/library/nao-existe-nunca-123:latest"
+  Warning  Failed     10s (x2 over 35s)  kubelet            spec.containers{server}: Error: ImagePullBackOff
