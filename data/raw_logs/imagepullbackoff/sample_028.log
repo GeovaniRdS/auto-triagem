@@ -1,0 +1,75 @@
+build-test-deploy	Verificar rollout	﻿2026-08-24T17:36:59.2912921Z ##[group]Run kubectl rollout status deployment/currencyservice --timeout=30s
+build-test-deploy	Verificar rollout	2026-08-24T17:36:59.2913418Z [36;1mkubectl rollout status deployment/currencyservice --timeout=30s[0m
+build-test-deploy	Verificar rollout	2026-08-24T17:36:59.2932438Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Verificar rollout	2026-08-24T17:36:59.2932656Z ##[endgroup]
+build-test-deploy	Verificar rollout	2026-08-24T17:36:59.4675032Z Waiting for deployment "currencyservice" rollout to finish: 0 out of 1 new replicas have been updated...
+build-test-deploy	Verificar rollout	2026-08-24T17:36:59.8006002Z Waiting for deployment "currencyservice" rollout to finish: 1 old replicas are pending termination...
+build-test-deploy	Verificar rollout	2026-08-24T17:37:26.5316541Z error: timed out waiting for the condition
+build-test-deploy	Verificar rollout	2026-08-24T17:37:26.5396874Z ##[error]Process completed with exit code 1.
+
+=== kubectl describe pod (diagnóstico local, capturado direto do cluster) ===
+Name:             currencyservice-84f94bcd85-gn78n
+Namespace:        default
+Priority:         0
+Service Account:  currencyservice
+Node:             desktop-6t1gt23/172.30.163.109
+Start Time:       Mon, 24 Aug 2026 14:36:59 -0300
+Labels:           app=currencyservice
+                  pod-template-hash=84f94bcd85
+Annotations:      <none>
+Status:           Pending
+IP:               10.42.0.38
+IPs:
+  IP:           10.42.0.38
+Controlled By:  ReplicaSet/currencyservice-84f94bcd85
+Containers:
+  server:
+    Container ID:   
+    Image:          imagem-fantasma-xyz:latest
+    Image ID:       
+    Port:           7000/TCP (grpc)
+    Host Port:      0/TCP (grpc)
+    State:          Waiting
+      Reason:       ErrImagePull
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      100m
+      memory:   64Mi
+    Liveness:   grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      PORT:              7000
+      DISABLE_PROFILER:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-zmgls (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-zmgls:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  36s                default-scheduler  Successfully assigned default/currencyservice-84f94bcd85-gn78n to desktop-6t1gt23
+  Normal   Pulling    20s (x2 over 36s)  kubelet            spec.containers{server}: Pulling image "imagem-fantasma-xyz:latest"
+  Warning  Failed     19s (x2 over 35s)  kubelet            spec.containers{server}: Failed to pull image "imagem-fantasma-xyz:latest": failed to pull and unpack image "docker.io/library/imagem-fantasma-xyz:latest": failed to resolve reference "docker.io/library/imagem-fantasma-xyz:latest": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+  Warning  Failed     19s (x2 over 35s)  kubelet            spec.containers{server}: Error: ErrImagePull
+  Normal   BackOff    9s (x2 over 35s)   kubelet            spec.containers{server}: Back-off pulling image "imagem-fantasma-xyz:latest"
+  Warning  Failed     9s (x2 over 35s)   kubelet            spec.containers{server}: Error: ImagePullBackOff
