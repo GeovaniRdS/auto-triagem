@@ -1,0 +1,7 @@
+build-test-deploy	Importar imagem no containerd do k3s	﻿2026-08-24T11:48:20.9506528Z ##[group]Run docker save currencyservice:tag-inexistente | sudo k3s ctr images import -
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:48:20.9507148Z [36;1mdocker save currencyservice:tag-inexistente | sudo k3s ctr images import -[0m
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:48:20.9525791Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:48:20.9526020Z ##[endgroup]
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:48:21.0188335Z Error response from daemon: No such image: currencyservice:tag-inexistente
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:48:21.0879569Z ctr: unrecognized image format
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:48:21.0970987Z ##[error]Process completed with exit code 1.
