@@ -44,7 +44,7 @@ spec:
           privileged: false
           readOnlyRootFilesystem: true
         image: currencyservice
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         ports:
         - name: grpc
           containerPort: 7000
