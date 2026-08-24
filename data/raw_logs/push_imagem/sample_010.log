@@ -1,0 +1,6 @@
+build-test-deploy	Importar imagem no containerd do k3s	﻿2026-08-24T11:24:50.5312463Z ##[group]Run docker save currencyservice:d3e4e1fa73c059d9c3e55ea518c86bf3b42de994 | sudo k3s ctrr images import -
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:24:50.5313234Z [36;1mdocker save currencyservice:d3e4e1fa73c059d9c3e55ea518c86bf3b42de994 | sudo k3s ctrr images import -[0m
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:24:50.5331852Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:24:50.5332098Z ##[endgroup]
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:24:50.5494901Z No help topic for 'ctrr'
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:24:50.6402801Z ##[error]Process completed with exit code 3.
