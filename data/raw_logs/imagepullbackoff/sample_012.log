@@ -1,0 +1,75 @@
+build-test-deploy	Verificar rollout	﻿2026-08-24T17:11:39.0728281Z ##[group]Run kubectl rollout status deployment/currencyservice --timeout=30s
+build-test-deploy	Verificar rollout	2026-08-24T17:11:39.0728846Z [36;1mkubectl rollout status deployment/currencyservice --timeout=30s[0m
+build-test-deploy	Verificar rollout	2026-08-24T17:11:39.0747468Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Verificar rollout	2026-08-24T17:11:39.0747751Z ##[endgroup]
+build-test-deploy	Verificar rollout	2026-08-24T17:11:39.2720996Z Waiting for deployment "currencyservice" rollout to finish: 0 out of 1 new replicas have been updated...
+build-test-deploy	Verificar rollout	2026-08-24T17:11:39.8813193Z Waiting for deployment "currencyservice" rollout to finish: 1 old replicas are pending termination...
+build-test-deploy	Verificar rollout	2026-08-24T17:12:06.3334065Z error: timed out waiting for the condition
+build-test-deploy	Verificar rollout	2026-08-24T17:12:06.3410367Z ##[error]Process completed with exit code 1.
+
+=== kubectl describe pod (diagnóstico local, capturado direto do cluster) ===
+Name:             currencyservice-648ff9bff5-qwdl5
+Namespace:        default
+Priority:         0
+Service Account:  currencyservice
+Node:             desktop-6t1gt23/172.30.163.109
+Start Time:       Mon, 24 Aug 2026 14:11:39 -0300
+Labels:           app=currencyservice
+                  pod-template-hash=648ff9bff5
+Annotations:      <none>
+Status:           Pending
+IP:               10.42.0.6
+IPs:
+  IP:           10.42.0.6
+Controlled By:  ReplicaSet/currencyservice-648ff9bff5
+Containers:
+  server:
+    Container ID:   
+    Image:          currencyservice:b469eb590b99ee50004cc269a85fda09783f4401-tagfake
+    Image ID:       
+    Port:           7000/TCP (grpc)
+    Host Port:      0/TCP (grpc)
+    State:          Waiting
+      Reason:       ErrImagePull
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      100m
+      memory:   64Mi
+    Liveness:   grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      PORT:              7000
+      DISABLE_PROFILER:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-gvw95 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-gvw95:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  37s                default-scheduler  Successfully assigned default/currencyservice-648ff9bff5-qwdl5 to desktop-6t1gt23
+  Normal   Pulling    20s (x2 over 37s)  kubelet            spec.containers{server}: Pulling image "currencyservice:b469eb590b99ee50004cc269a85fda09783f4401-tagfake"
+  Warning  Failed     15s (x2 over 36s)  kubelet            spec.containers{server}: Failed to pull image "currencyservice:b469eb590b99ee50004cc269a85fda09783f4401-tagfake": failed to pull and unpack image "docker.io/library/currencyservice:b469eb590b99ee50004cc269a85fda09783f4401-tagfake": failed to resolve reference "docker.io/library/currencyservice:b469eb590b99ee50004cc269a85fda09783f4401-tagfake": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+  Warning  Failed     15s (x2 over 36s)  kubelet            spec.containers{server}: Error: ErrImagePull
+  Normal   BackOff    7s (x2 over 35s)   kubelet            spec.containers{server}: Back-off pulling image "currencyservice:b469eb590b99ee50004cc269a85fda09783f4401-tagfake"
+  Warning  Failed     7s (x2 over 35s)   kubelet            spec.containers{server}: Error: ImagePullBackOff
