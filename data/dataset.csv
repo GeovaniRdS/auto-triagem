@@ -79,3 +79,4 @@ sample_id,classe,run_id,log_path,timestamp
 018,push_imagem,32663994173,data/raw_logs/push_imagem/sample_018.log,2026-08-23T21:45:10-03:00
 019,push_imagem,32663994173,data/raw_logs/push_imagem/sample_019.log,2026-08-23T21:45:25-03:00
 020,push_imagem,32663994173,data/raw_logs/push_imagem/sample_020.log,2026-08-23T21:45:39-03:00
+021,push_imagem,32663994173,data/raw_logs/push_imagem/sample_021.log,2026-08-23T21:45:54-03:00
