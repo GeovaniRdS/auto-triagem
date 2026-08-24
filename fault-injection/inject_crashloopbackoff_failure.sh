@@ -60,15 +60,26 @@ while true; do
   sleep 5
 done
 
-echo "Aguardando o kubelet acumular restarts suficientes para expor CrashLoopBackOff nos eventos..."
-sleep 20
+POD_NAME=$(kubectl get pods -l app=currencyservice --sort-by=.metadata.creationTimestamp -o jsonpath='{.items[-1:].metadata.name}')
+
+echo "Aguardando o pod $POD_NAME escalar para CrashLoopBackOff (polling a cada 5s, timeout 90s)..."
+WAITING_REASON=""
+for i in $(seq 1 18); do
+  WAITING_REASON=$(kubectl get pod $POD_NAME -o jsonpath='{.status.containerStatuses[0].state.waiting.reason}' 2>/dev/null)
+  if [ "$WAITING_REASON" == "CrashLoopBackOff" ]; then
+    break
+  fi
+  sleep 5
+done
+if [ "$WAITING_REASON" != "CrashLoopBackOff" ]; then
+  echo "⚠️  Timeout de 90s sem escalar para CrashLoopBackOff (último valor: '$WAITING_REASON'). Capturando mesmo assim."
+fi
 
 LOG_PATH="data/raw_logs/crashloopbackoff/sample_${SAMPLE_NUM}.log"
 gh run view $RUN_ID --log-failed > $LOG_PATH
 
 echo "" >> $LOG_PATH
 echo "=== kubectl describe pod (diagnóstico local, capturado direto do cluster) ===" >> $LOG_PATH
-POD_NAME=$(kubectl get pods -l app=currencyservice --sort-by=.metadata.creationTimestamp -o jsonpath='{.items[-1:].metadata.name}')
 kubectl describe pod $POD_NAME >> $LOG_PATH 2>&1
 
 echo "${SAMPLE_NUM},crashloopbackoff,${RUN_ID},${LOG_PATH},$(date -Iseconds)" >> data/dataset.csv
