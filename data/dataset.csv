@@ -199,3 +199,4 @@ sample_id,classe,run_id,log_path,timestamp
 018,admissao,32787646177,data/raw_logs/admissao/sample_018.log,2026-08-24T20:05:29-03:00
 019,admissao,32787768504,data/raw_logs/admissao/sample_019.log,2026-08-24T20:06:58-03:00
 020,admissao,32787883345,data/raw_logs/admissao/sample_020.log,2026-08-24T20:08:29-03:00
+021,admissao,32787999398,data/raw_logs/admissao/sample_021.log,2026-08-24T20:09:59-03:00
