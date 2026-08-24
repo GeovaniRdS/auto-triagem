@@ -19,9 +19,6 @@ metadata:
   labels:
     app: currencyservice
 spec:
-  selector:
-    matchLabels:
-      app: currencyservice
   template:
     metadata:
       labels:
