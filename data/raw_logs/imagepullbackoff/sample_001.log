@@ -1,0 +1,66 @@
+
+=== kubectl describe pod (diagnóstico local, capturado direto do cluster) ===
+Name:             currencyservice-865c67b8cf-frwhv
+Namespace:        default
+Priority:         0
+Service Account:  currencyservice
+Node:             desktop-6t1gt23/172.30.163.109
+Start Time:       Mon, 24 Aug 2026 09:18:01 -0300
+Labels:           app=currencyservice
+                  pod-template-hash=865c67b8cf
+Annotations:      <none>
+Status:           Running
+IP:               10.42.0.235
+IPs:
+  IP:           10.42.0.235
+Controlled By:  ReplicaSet/currencyservice-865c67b8cf
+Containers:
+  server:
+    Container ID:   containerd://eb94248aff9afb8e5262949bde40e0fee57a442014b5dfdc74b9cad72d39e092
+    Image:          currencyservice:7dcbe39c711c9c9708d5a37c5d40c425b529d7ce
+    Image ID:       sha256:62a69665da4fac76d96d17f84485afb4c325d8183eb8dd8959671c43c7eb35c1
+    Port:           7000/TCP (grpc)
+    Host Port:      0/TCP (grpc)
+    State:          Running
+      Started:      Mon, 24 Aug 2026 09:18:02 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      100m
+      memory:   64Mi
+    Liveness:   grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      PORT:              7000
+      DISABLE_PROFILER:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-lcx6s (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-lcx6s:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  16s                default-scheduler  Successfully assigned default/currencyservice-865c67b8cf-frwhv to desktop-6t1gt23
+  Warning  Unhealthy  16s (x2 over 14s)  kubelet            spec.containers{server}: Readiness probe failed: timeout: failed to connect service "10.42.0.235:7000" within 1s: context deadline exceeded
+  Normal   Pulled     15s                kubelet            spec.containers{server}: Container image "currencyservice:7dcbe39c711c9c9708d5a37c5d40c425b529d7ce" already present on machine and can be accessed by the pod
+  Normal   Created    15s                kubelet            spec.containers{server}: Container created
+  Normal   Started    15s                kubelet            spec.containers{server}: Container started
