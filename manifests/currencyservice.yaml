@@ -33,7 +33,7 @@ spec:
         fsGroup: 1000
         runAsGroup: 1000
         runAsNonRoot: true
-        runAsUser: 1000
+        runAsUser: -1
       containers:
       - name: server
         securityContext:
