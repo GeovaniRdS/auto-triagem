@@ -15,6 +15,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: namespace-fantasma
   name: currencyservice
   labels:
     app: currencyservice
