@@ -1,0 +1,6 @@
+build-test-deploy	Importar imagem no containerd do k3s	﻿2026-08-24T11:33:07.1386348Z ##[group]Run docker save currencyservice:8c8162194182791893d0e8b5dd655ebde1991a07 | sudo CONTAINERD_ADDRESS=/run/k3s/containerd/invalido.sock k3s ctr images import -
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:33:07.1387725Z [36;1mdocker save currencyservice:8c8162194182791893d0e8b5dd655ebde1991a07 | sudo CONTAINERD_ADDRESS=/run/k3s/containerd/invalido.sock k3s ctr images import -[0m
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:33:07.1406567Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:33:07.1406797Z ##[endgroup]
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:33:07.1532520Z sudo: sorry, you are not allowed to set the following environment variables: CONTAINERD_ADDRESS
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:33:07.2397650Z ##[error]Process completed with exit code 1.
