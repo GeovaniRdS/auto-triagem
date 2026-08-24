@@ -20,7 +20,7 @@ metadata:
     app: currencyservice
 spec:
   selector:
-    matchLabels:
+    matchLabelz:
       app: currencyservice
   template:
     metadata:
