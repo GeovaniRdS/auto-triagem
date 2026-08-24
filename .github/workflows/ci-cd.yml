@@ -5,6 +5,7 @@ on:
     paths:
       - 'ci-service/src/currencyservice/**'
       - 'manifests/**'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 jobs:
