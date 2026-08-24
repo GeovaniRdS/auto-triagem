@@ -47,7 +47,7 @@ spec:
         imagePullPolicy: Never
         ports:
         - name: grpc
-          containerPort: "sete"
+          containerPort: 7000
         env:
         - name: PORT
           value: "7000"
