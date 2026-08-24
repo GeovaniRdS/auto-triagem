@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in $(seq -w 002 030); do
+for i in $(seq -w 003 030); do
   VARIANT=$(( (10#$i - 2) % 5 + 1 ))
   echo "=== Rodando amostra $i (variante $VARIANT) ==="
   ./fault-injection/inject_push_failure.sh $i $VARIANT
