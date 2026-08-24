@@ -3,9 +3,11 @@ set -e
 
 REPO=~/projetos/auto-triagem
 MANIFEST=$REPO/manifests/currencyservice.yaml
-BACKUP=/tmp/currencyservice.yaml.backup
+WORKFLOW=$REPO/.github/workflows/ci-cd.yml
+MANIFEST_BACKUP=/tmp/currencyservice.yaml.backup
+WORKFLOW_BACKUP=/tmp/ci-cd.yml.backup
 SAMPLE_NUM=$1
-VARIANT=$2   # 1=tag_inexistente_local, 2=registry_inexistente, 3=imagem_docker_hub_inexistente, 4=forcar_pull_sempre, 5=gcr_inexistente
+VARIANT=$2   # 1=sufixo_falso, 2=nome_fantasma, 3=dockerhub_inexistente, 4=registry_privado_falso, 5=gcr_inexistente
 
 if ! pgrep -f "Runner.Listener" > /dev/null; then
   echo "❌ ERRO: o self-hosted runner não está rodando. Inicie com: cd ~/actions-runner && ./run.sh"
@@ -13,17 +15,20 @@ if ! pgrep -f "Runner.Listener" > /dev/null; then
 fi
 
 cd $REPO
-cp $MANIFEST $BACKUP
+cp $MANIFEST $MANIFEST_BACKUP
+cp $WORKFLOW $WORKFLOW_BACKUP
+
+sed -i 's|imagePullPolicy: Never|imagePullPolicy: Always|' $MANIFEST
 
 case $VARIANT in
-  1) sed -i 's|image: currencyservice|image: currencyservice:tag-que-nunca-foi-buildada|; s|imagePullPolicy: Never|imagePullPolicy: IfNotPresent|' $MANIFEST ;;
-  2) sed -i 's|image: currencyservice|image: registry-inexistente.example.com/currencyservice:latest|; s|imagePullPolicy: Never|imagePullPolicy: Always|' $MANIFEST ;;
-  3) sed -i 's|image: currencyservice|image: docker.io/library/imagem-que-nao-existe-xyz:latest|; s|imagePullPolicy: Never|imagePullPolicy: IfNotPresent|' $MANIFEST ;;
-  4) sed -i 's|imagePullPolicy: Never|imagePullPolicy: Always|' $MANIFEST ;;
-  5) sed -i 's|image: currencyservice|image: gcr.io/projeto-inexistente-xyz/currencyservice:v1|; s|imagePullPolicy: Never|imagePullPolicy: Always|' $MANIFEST ;;
+  1) sed -i 's|image: currencyservice:\${{ github.sha }}|image: currencyservice:${{ github.sha }}-tagfake|' $WORKFLOW ;;
+  2) sed -i 's|image: currencyservice:\${{ github.sha }}|image: imagem-fantasma-xyz:latest|' $WORKFLOW ;;
+  3) sed -i 's|image: currencyservice:\${{ github.sha }}|image: docker.io/library/nao-existe-nunca-123:latest|' $WORKFLOW ;;
+  4) sed -i 's|image: currencyservice:\${{ github.sha }}|image: registry-privado-fake.example.com/currencyservice:v1|' $WORKFLOW ;;
+  5) sed -i 's|image: currencyservice:\${{ github.sha }}|image: gcr.io/projeto-fake-123/currencyservice:v1|' $WORKFLOW ;;
 esac
 
-git add $MANIFEST
+git add $MANIFEST $WORKFLOW
 git commit -m "fault-injection: imagepullbackoff failure variante $VARIANT (amostra $SAMPLE_NUM)"
 git push
 
@@ -57,12 +62,13 @@ gh run view $RUN_ID --log-failed > $LOG_PATH
 
 echo "" >> $LOG_PATH
 echo "=== kubectl describe pod (diagnóstico local, capturado direto do cluster) ===" >> $LOG_PATH
-POD_NAME=$(kubectl get pods -l app=currencyservice -o jsonpath='{.items[0].metadata.name}')
+POD_NAME=$(kubectl get pods -l app=currencyservice --sort-by=.metadata.creationTimestamp -o jsonpath='{.items[-1:].metadata.name}')
 kubectl describe pod $POD_NAME >> $LOG_PATH 2>&1
 
 echo "${SAMPLE_NUM},imagepullbackoff,${RUN_ID},${LOG_PATH},$(date -Iseconds)" >> data/dataset.csv
 
-cp $BACKUP $MANIFEST
+cp $MANIFEST_BACKUP $MANIFEST
+cp $WORKFLOW_BACKUP $WORKFLOW
 git add -A
 git commit -m "revert: fault-injection imagepullbackoff failure amostra $SAMPLE_NUM"
 git push
@@ -71,4 +77,3 @@ echo "Aguardando pipeline de reversão corrigir o pod..."
 sleep 15
 
 echo "✅ Amostra $SAMPLE_NUM (variante $VARIANT) capturada em $LOG_PATH"
-
