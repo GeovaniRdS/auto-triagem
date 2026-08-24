@@ -62,17 +62,28 @@ done
 
 POD_NAME=$(kubectl get pods -l app=currencyservice --sort-by=.metadata.creationTimestamp -o jsonpath='{.items[-1:].metadata.name}')
 
-echo "Aguardando o pod $POD_NAME escalar para CrashLoopBackOff (polling a cada 5s, timeout 90s)..."
+echo "Aguardando o pod $POD_NAME (restartCount>=3 confirma progresso; tentando ate 150s capturar waiting.reason=CrashLoopBackOff)..."
 WAITING_REASON=""
-for i in $(seq 1 18); do
+RESTART_COUNT=""
+PROGRESS_CONFIRMED=false
+for i in $(seq 1 30); do
   WAITING_REASON=$(kubectl get pod $POD_NAME -o jsonpath='{.status.containerStatuses[0].state.waiting.reason}' 2>/dev/null)
+  RESTART_COUNT=$(kubectl get pod $POD_NAME -o jsonpath='{.status.containerStatuses[0].restartCount}' 2>/dev/null)
   if [ "$WAITING_REASON" == "CrashLoopBackOff" ]; then
+    echo "✅ CrashLoopBackOff confirmado no waiting.reason (restartCount=$RESTART_COUNT)."
     break
+  fi
+  if [ -n "$RESTART_COUNT" ] && [ "$RESTART_COUNT" -ge 3 ]; then
+    PROGRESS_CONFIRMED=true
   fi
   sleep 5
 done
 if [ "$WAITING_REASON" != "CrashLoopBackOff" ]; then
-  echo "⚠️  Timeout de 90s sem escalar para CrashLoopBackOff (último valor: '$WAITING_REASON'). Capturando mesmo assim."
+  if [ "$PROGRESS_CONFIRMED" == "true" ]; then
+    echo "⚠️  Timeout de 150s sem capturar waiting.reason=CrashLoopBackOff, mas restartCount atingiu >=3 (progresso confirmado). Capturando mesmo assim."
+  else
+    echo "⚠️  Timeout de 150s sem capturar waiting.reason=CrashLoopBackOff e restartCount nunca atingiu 3 (ultimo valor: '$RESTART_COUNT'). Capturando mesmo assim."
+  fi
 fi
 
 LOG_PATH="data/raw_logs/crashloopbackoff/sample_${SAMPLE_NUM}.log"
