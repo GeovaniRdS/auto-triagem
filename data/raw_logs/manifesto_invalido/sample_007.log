@@ -1,0 +1,9 @@
+build-test-deploy	Deploy no cluster Kubernetes	﻿2026-08-24T01:24:37.8780338Z ##[group]Run kubectl apply -f manifests/currencyservice.yaml
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:24:37.8780723Z [36;1mkubectl apply -f manifests/currencyservice.yaml[0m
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:24:37.8798535Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:24:37.8798745Z ##[endgroup]
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:24:38.7499470Z service/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:24:38.8028580Z error: resource mapping not found for name: "currencyservice" namespace: "" from "manifests/currencyservice.yaml": no matches for kind "Deployment" in version "apps/v99"
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:24:38.8029738Z serviceaccount/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:24:38.8030133Z ensure CRDs are installed first
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:24:38.8134449Z ##[error]Process completed with exit code 1.
