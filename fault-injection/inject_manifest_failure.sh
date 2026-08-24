@@ -23,9 +23,25 @@ case $VARIANT in
   5) sed -i '19s/^  labels:/ labels:/' $MANIFEST ;;
 esac
 
-echo "Aguardando pipeline iniciar..."
-sleep 10
-RUN_ID=$(gh run list --workflow=ci-cd.yml --limit 1 --json databaseId -q '.[0].databaseId')
+git add $MANIFEST
+git commit -m "fault-injection: manifest failure variante $VARIANT (amostra $SAMPLE_NUM)"
+git push
+
+COMMIT_SHA=$(git rev-parse HEAD)
+echo "Aguardando pipeline correspondente ao commit ${COMMIT_SHA:0:7}..."
+sleep 5
+RUN_ID=""
+for i in $(seq 1 12); do
+  RUN_ID=$(gh run list --workflow=ci-cd.yml --limit 5 --json databaseId,headSha -q ".[] | select(.headSha==\"$COMMIT_SHA\") | .databaseId" | head -1)
+  if [ -n "$RUN_ID" ]; then
+    break
+  fi
+  sleep 5
+done
+if [ -z "$RUN_ID" ]; then
+  echo "❌ ERRO: não encontrou o run correspondente ao commit $COMMIT_SHA após 65s. Abortando."
+  exit 1
+fi
 echo "Run ID: $RUN_ID — aguardando conclusão..."
 
 while true; do
