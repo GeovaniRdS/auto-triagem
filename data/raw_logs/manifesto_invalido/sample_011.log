@@ -1,0 +1,6 @@
+build-test-deploy	Deploy no cluster Kubernetes	﻿2026-08-24T01:28:53.8893481Z ##[group]Run kubectl apply -f manifests/currencyservice.yaml
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:28:53.8893857Z [36;1mkubectl apply -f manifests/currencyservice.yaml[0m
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:28:53.8909803Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:28:53.8909997Z ##[endgroup]
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:28:54.0374057Z error: error parsing manifests/currencyservice.yaml: error converting YAML to JSON: yaml: line 18: did not find expected key
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T01:28:54.0451169Z ##[error]Process completed with exit code 1.
