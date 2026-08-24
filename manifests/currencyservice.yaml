@@ -55,10 +55,10 @@ spec:
           value: "1"
         readinessProbe:
           grpc:
-            port: 7000
+            port: 9999
         livenessProbe:
           grpc:
-            port: 7000
+            port: 9999
         resources:
           requests:
             cpu: 100m
