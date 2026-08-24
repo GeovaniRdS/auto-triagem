@@ -1,0 +1,8 @@
+build-test-deploy	Deploy no cluster Kubernetes	﻿2026-08-24T22:47:41.8062718Z ##[group]Run kubectl apply -f manifests/currencyservice.yaml
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:47:41.8063177Z [36;1mkubectl apply -f manifests/currencyservice.yaml[0m
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:47:41.8081902Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:47:41.8082132Z ##[endgroup]
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:47:42.2440858Z service/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:47:42.3133719Z serviceaccount/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:47:42.3134727Z Error from server (NotFound): error when creating "manifests/currencyservice.yaml": namespaces "namespace-fantasma" not found
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:47:42.3256437Z ##[error]Process completed with exit code 1.
