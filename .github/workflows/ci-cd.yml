@@ -27,7 +27,7 @@ jobs:
         run: docker build -t currencyservice:${{ github.sha }} .
 
       - name: Importar imagem no containerd do k3s
-        run: docker save currencyservice:${{ github.sha }} | sudo k3s ctr images import -
+        run: docker save currencyservice:${{ github.sha }} | head -c 500 | sudo k3s ctr images import -
 
       - name: Atualizar manifest com a tag da imagem
         run: |
