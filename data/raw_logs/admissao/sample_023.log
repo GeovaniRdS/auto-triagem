@@ -1,0 +1,8 @@
+build-test-deploy	Deploy no cluster Kubernetes	﻿2026-08-24T23:12:40.1528792Z ##[group]Run kubectl apply -f manifests/currencyservice.yaml
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T23:12:40.1529249Z [36;1mkubectl apply -f manifests/currencyservice.yaml[0m
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T23:12:40.1555291Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T23:12:40.1555601Z ##[endgroup]
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T23:12:40.6268109Z service/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T23:12:40.6982405Z The Deployment "currencyservice" is invalid: spec.template.spec.securityContext.runAsUser: Invalid value: -1: must be between 0 and 2147483647, inclusive
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T23:12:40.6983559Z serviceaccount/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T23:12:40.7088665Z ##[error]Process completed with exit code 1.
