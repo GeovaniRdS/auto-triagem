@@ -1,0 +1,6 @@
+build-test-deploy	Importar imagem no containerd do k3s	﻿2026-08-24T11:42:07.1936819Z ##[group]Run docker save currencyservice:d4a020e11159d644871ee4d03f45ffc245f97fbc | head -c 500 | sudo k3s ctr images import -
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:42:07.1937612Z [36;1mdocker save currencyservice:d4a020e11159d644871ee4d03f45ffc245f97fbc | head -c 500 | sudo k3s ctr images import -[0m
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:42:07.1958641Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:42:07.1958894Z ##[endgroup]
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:42:07.3744921Z ctr: unexpected EOF
+build-test-deploy	Importar imagem no containerd do k3s	2026-08-24T11:42:07.3835142Z ##[error]Process completed with exit code 1.
