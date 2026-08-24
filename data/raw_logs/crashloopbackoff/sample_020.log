@@ -1,0 +1,80 @@
+build-test-deploy	Verificar rollout	﻿2026-08-24T18:48:08.1079518Z ##[group]Run kubectl rollout status deployment/currencyservice --timeout=30s
+build-test-deploy	Verificar rollout	2026-08-24T18:48:08.1080353Z [36;1mkubectl rollout status deployment/currencyservice --timeout=30s[0m
+build-test-deploy	Verificar rollout	2026-08-24T18:48:08.1102206Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Verificar rollout	2026-08-24T18:48:08.1102436Z ##[endgroup]
+build-test-deploy	Verificar rollout	2026-08-24T18:48:08.2905906Z Waiting for deployment "currencyservice" rollout to finish: 0 out of 1 new replicas have been updated...
+build-test-deploy	Verificar rollout	2026-08-24T18:48:08.4887399Z Waiting for deployment "currencyservice" rollout to finish: 1 old replicas are pending termination...
+build-test-deploy	Verificar rollout	2026-08-24T18:48:35.3537472Z error: timed out waiting for the condition
+build-test-deploy	Verificar rollout	2026-08-24T18:48:35.3623520Z ##[error]Process completed with exit code 1.
+
+=== kubectl describe pod (diagnóstico local, capturado direto do cluster) ===
+Name:             currencyservice-7fdb97c4f4-s7n4x
+Namespace:        default
+Priority:         0
+Service Account:  currencyservice
+Node:             desktop-6t1gt23/172.30.163.109
+Start Time:       Mon, 24 Aug 2026 15:48:08 -0300
+Labels:           app=currencyservice
+                  pod-template-hash=7fdb97c4f4
+Annotations:      <none>
+Status:           Running
+IP:               10.42.0.82
+IPs:
+  IP:           10.42.0.82
+Controlled By:  ReplicaSet/currencyservice-7fdb97c4f4
+Containers:
+  server:
+    Container ID:   containerd://9d16844c7d0c3cfd9e29dfdb954fcbd5fb99088f03b63ff138a72bd7041c596c
+    Image:          currencyservice:96841ff70685d0b77ea95a840f2f1ecc95f5c637
+    Image ID:       sha256:c4a92c16f5e265bad46e21543792d162b992574dbd71b88219b1fc5d12e8f93e
+    Port:           7000/TCP (grpc)
+    Host Port:      0/TCP (grpc)
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Mon, 24 Aug 2026 15:48:46 -0300
+      Finished:     Mon, 24 Aug 2026 15:48:47 -0300
+    Ready:          False
+    Restart Count:  2
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      100m
+      memory:   64Mi
+    Liveness:   grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      PORT:              7000
+      DISABLE_PROFILER:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-57rzd (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-57rzd:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  52s                default-scheduler  Successfully assigned default/currencyservice-7fdb97c4f4-s7n4x to desktop-6t1gt23
+  Normal   Pulled     14s (x4 over 51s)  kubelet            spec.containers{server}: Container image "currencyservice:96841ff70685d0b77ea95a840f2f1ecc95f5c637" already present on machine and can be accessed by the pod
+  Normal   Created    14s (x4 over 51s)  kubelet            spec.containers{server}: Container created
+  Normal   Started    14s (x4 over 51s)  kubelet            spec.containers{server}: Container started
+  Warning  Unhealthy  12s (x6 over 50s)  kubelet            spec.containers{server}: Readiness probe failed: timeout: failed to connect service "10.42.0.82:7000" within 1s: context deadline exceeded
+  Warning  BackOff    8s (x7 over 52s)   kubelet            spec.containers{server}: Back-off restarting failed container server in pod currencyservice-7fdb97c4f4-s7n4x_default(4afc9658-51ef-4c69-90cc-d07ed1373d2e)
