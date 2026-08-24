@@ -1,0 +1,8 @@
+build-test-deploy	Deploy no cluster Kubernetes	﻿2026-08-24T22:59:28.8372293Z ##[group]Run kubectl apply -f manifests/currencyservice.yaml
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:59:28.8372793Z [36;1mkubectl apply -f manifests/currencyservice.yaml[0m
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:59:28.8403992Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:59:28.8404304Z ##[endgroup]
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:59:29.3075019Z service/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:59:29.3766384Z The Deployment "currencyservice" is invalid: spec.template.spec.containers[0].resources.requests: Invalid value: "256Mi": must be less than or equal to memory limit of 128Mi
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:59:29.3768206Z serviceaccount/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:59:29.3884207Z ##[error]Process completed with exit code 1.
