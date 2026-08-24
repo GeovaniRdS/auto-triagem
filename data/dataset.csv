@@ -81,3 +81,4 @@ sample_id,classe,run_id,log_path,timestamp
 020,manifesto_invalido,32680419006,data/raw_logs/manifesto_invalido/sample_020.log,2026-08-23T22:39:05-03:00
 021,manifesto_invalido,32680474828,data/raw_logs/manifesto_invalido/sample_021.log,2026-08-23T22:40:14-03:00
 022,manifesto_invalido,32680533571,data/raw_logs/manifesto_invalido/sample_022.log,2026-08-23T22:41:18-03:00
+023,manifesto_invalido,32680587201,data/raw_logs/manifesto_invalido/sample_023.log,2026-08-23T22:42:21-03:00
