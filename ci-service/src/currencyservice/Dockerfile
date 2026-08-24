@@ -42,4 +42,4 @@ COPY . .
 
 EXPOSE 7000
 
-ENTRYPOINT [ "node", "arquivo-que-nao-existe.js" ]
+ENTRYPOINT [ "node", "server.js" ]
