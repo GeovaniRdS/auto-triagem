@@ -43,8 +43,8 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: currencyservice
-        imagePullPolicy: Never
+        image: currencyservice:tag-que-nunca-foi-buildada
+        imagePullPolicy: IfNotPresent
         ports:
         - name: grpc
           containerPort: 7000
