@@ -169,3 +169,4 @@ sample_id,classe,run_id,log_path,timestamp
 018,crashloopbackoff,32764051876,data/raw_logs/crashloopbackoff/sample_018.log,2026-08-24T15:45:12-03:00
 019,crashloopbackoff,32764239552,data/raw_logs/crashloopbackoff/sample_019.log,2026-08-24T15:47:10-03:00
 020,crashloopbackoff,32764420868,data/raw_logs/crashloopbackoff/sample_020.log,2026-08-24T15:49:00-03:00
+021,crashloopbackoff,32764591073,data/raw_logs/crashloopbackoff/sample_021.log,2026-08-24T15:50:55-03:00
