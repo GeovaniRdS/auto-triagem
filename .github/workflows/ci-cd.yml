@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'ci-service/src/currencyservice/**'
+      - 'manifests/**'
   workflow_dispatch:
 
 jobs:
