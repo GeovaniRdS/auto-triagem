@@ -1,0 +1,75 @@
+build-test-deploy	Verificar rollout	﻿2026-08-24T16:57:00.1791342Z ##[group]Run kubectl rollout status deployment/currencyservice --timeout=30s
+build-test-deploy	Verificar rollout	2026-08-24T16:57:00.1791837Z [36;1mkubectl rollout status deployment/currencyservice --timeout=30s[0m
+build-test-deploy	Verificar rollout	2026-08-24T16:57:00.1817508Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Verificar rollout	2026-08-24T16:57:00.1817735Z ##[endgroup]
+build-test-deploy	Verificar rollout	2026-08-24T16:57:00.3658112Z Waiting for deployment "currencyservice" rollout to finish: 0 out of 1 new replicas have been updated...
+build-test-deploy	Verificar rollout	2026-08-24T16:57:00.6503836Z Waiting for deployment "currencyservice" rollout to finish: 1 old replicas are pending termination...
+build-test-deploy	Verificar rollout	2026-08-24T16:57:27.4292261Z error: timed out waiting for the condition
+build-test-deploy	Verificar rollout	2026-08-24T16:57:27.4370024Z ##[error]Process completed with exit code 1.
+
+=== kubectl describe pod (diagnóstico local, capturado direto do cluster) ===
+Name:             currencyservice-84f94bcd85-mmtd9
+Namespace:        default
+Priority:         0
+Service Account:  currencyservice
+Node:             desktop-6t1gt23/172.30.163.109
+Start Time:       Mon, 24 Aug 2026 13:57:00 -0300
+Labels:           app=currencyservice
+                  pod-template-hash=84f94bcd85
+Annotations:      <none>
+Status:           Pending
+IP:               10.42.0.241
+IPs:
+  IP:           10.42.0.241
+Controlled By:  ReplicaSet/currencyservice-84f94bcd85
+Containers:
+  server:
+    Container ID:   
+    Image:          imagem-fantasma-xyz:latest
+    Image ID:       
+    Port:           7000/TCP (grpc)
+    Host Port:      0/TCP (grpc)
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      100m
+      memory:   64Mi
+    Liveness:   grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  grpc <pod>:7000  delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      PORT:              7000
+      DISABLE_PROFILER:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pcfcv (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-pcfcv:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  36s                default-scheduler  Successfully assigned default/currencyservice-84f94bcd85-mmtd9 to desktop-6t1gt23
+  Normal   BackOff    12s (x2 over 35s)  kubelet            spec.containers{server}: Back-off pulling image "imagem-fantasma-xyz:latest"
+  Warning  Failed     12s (x2 over 35s)  kubelet            spec.containers{server}: Error: ImagePullBackOff
+  Normal   Pulling    3s (x3 over 36s)   kubelet            spec.containers{server}: Pulling image "imagem-fantasma-xyz:latest"
+  Warning  Failed     2s (x3 over 35s)   kubelet            spec.containers{server}: Failed to pull image "imagem-fantasma-xyz:latest": failed to pull and unpack image "docker.io/library/imagem-fantasma-xyz:latest": failed to resolve reference "docker.io/library/imagem-fantasma-xyz:latest": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+  Warning  Failed     2s (x3 over 35s)   kubelet            spec.containers{server}: Error: ErrImagePull
