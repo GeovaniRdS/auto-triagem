@@ -16,7 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: currencyservice
- labels:
+  labels:
     app: currencyservice
 spec:
   selector:
