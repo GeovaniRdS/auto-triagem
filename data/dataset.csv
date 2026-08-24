@@ -138,3 +138,4 @@ sample_id,classe,run_id,log_path,timestamp
 017,imagepullbackoff,32755913593,data/raw_logs/imagepullbackoff/sample_017.log,2026-08-24T14:20:11-03:00
 018,imagepullbackoff,32756061022,data/raw_logs/imagepullbackoff/sample_018.log,2026-08-24T14:21:45-03:00
 019,imagepullbackoff,32756209588,data/raw_logs/imagepullbackoff/sample_019.log,2026-08-24T14:23:19-03:00
+020,imagepullbackoff,32756359720,data/raw_logs/imagepullbackoff/sample_020.log,2026-08-24T14:24:52-03:00
