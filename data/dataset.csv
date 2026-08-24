@@ -111,3 +111,4 @@ sample_id,classe,run_id,log_path,timestamp
 021,push_imagem,32722950310,data/raw_logs/push_imagem/sample_021.log,2026-08-24T08:40:08-03:00
 022,push_imagem,32723032831,data/raw_logs/push_imagem/sample_022.log,2026-08-24T08:41:14-03:00
 023,push_imagem,32723123580,data/raw_logs/push_imagem/sample_023.log,2026-08-24T08:42:19-03:00
+024,push_imagem,32723218046,data/raw_logs/push_imagem/sample_024.log,2026-08-24T08:45:18-03:00
