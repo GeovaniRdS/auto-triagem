@@ -1,0 +1,8 @@
+build-test-deploy	Verificar rollout	﻿2026-08-24T11:36:08.5838094Z ##[group]Run kubectl rollout status deployment/currencyservice --timeout=120s
+build-test-deploy	Verificar rollout	2026-08-24T11:36:08.5838594Z [36;1mkubectl rollout status deployment/currencyservice --timeout=120s[0m
+build-test-deploy	Verificar rollout	2026-08-24T11:36:08.5856365Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Verificar rollout	2026-08-24T11:36:08.5856584Z ##[endgroup]
+build-test-deploy	Verificar rollout	2026-08-24T11:36:08.7512959Z Waiting for deployment "currencyservice" rollout to finish: 0 out of 1 new replicas have been updated...
+build-test-deploy	Verificar rollout	2026-08-24T11:36:09.2740226Z Waiting for deployment "currencyservice" rollout to finish: 1 old replicas are pending termination...
+build-test-deploy	Verificar rollout	2026-08-24T11:38:01.0412261Z error: timed out waiting for the condition
+build-test-deploy	Verificar rollout	2026-08-24T11:38:01.0497820Z ##[error]Process completed with exit code 1.
