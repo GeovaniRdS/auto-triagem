@@ -59,3 +59,4 @@ sample_id,classe,run_id,log_path,timestamp
 028,teste,32663849896,data/raw_logs/teste/sample_028.log,2026-08-23T17:16:14-03:00
 029,teste,32663896464,data/raw_logs/teste/sample_029.log,2026-08-23T17:17:13-03:00
 030,teste,32663945264,data/raw_logs/teste/sample_030.log,2026-08-23T17:18:12-03:00
+001,manifesto_invalido,32678776455,data/raw_logs/manifesto_invalido/sample_001.log,2026-08-23T22:09:50-03:00
