@@ -126,3 +126,4 @@ sample_id,classe,run_id,log_path,timestamp
 005,imagepullbackoff,32754017871,data/raw_logs/imagepullbackoff/sample_005.log,2026-08-24T14:00:50-03:00
 006,imagepullbackoff,32754184446,data/raw_logs/imagepullbackoff/sample_006.log,2026-08-24T14:02:22-03:00
 007,imagepullbackoff,32754334487,data/raw_logs/imagepullbackoff/sample_007.log,2026-08-24T14:03:56-03:00
+008,imagepullbackoff,32754486653,data/raw_logs/imagepullbackoff/sample_008.log,2026-08-24T14:05:59-03:00
