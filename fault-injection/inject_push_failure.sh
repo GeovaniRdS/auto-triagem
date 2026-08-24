@@ -17,7 +17,7 @@ cp $WORKFLOW $BACKUP
 
 case $VARIANT in
   1) sed -i 's|docker save currencyservice:\${{ github.sha }}|docker save currencyservice:tag-inexistente|' $WORKFLOW ;;
-  2) sed -i 's|docker save currencyservice:\${{ github.sha }} | sudo k3s ctr images import -|docker save currencyservice:${{ github.sha }} | head -c 500 | sudo k3s ctr images import -|' $WORKFLOW ;;
+  2) sed -i 's@docker save currencyservice:${{ github.sha }} | sudo k3s ctr images import -@docker save currencyservice:${{ github.sha }} | head -c 500 | sudo k3s ctr images import -@' $WORKFLOW ;;
   3) sed -i 's|sudo k3s ctr images import -|sudo k3s ctr -n namespace-invalido images import -|' $WORKFLOW ;;
   4) sed -i 's|sudo k3s ctr images import -|sudo k3s ctrr images import -|' $WORKFLOW ;;
   5) sed -i 's|sudo k3s ctr images import -|sudo CONTAINERD_ADDRESS=/run/k3s/containerd/invalido.sock k3s ctr images import -|' $WORKFLOW ;;
