@@ -21,7 +21,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: currencyservice
+      app: currencyservice-boom
   template:
     metadata:
       labels:
