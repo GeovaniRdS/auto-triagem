@@ -1,0 +1,8 @@
+build-test-deploy	Deploy no cluster Kubernetes	﻿2026-08-24T22:42:23.2834658Z ##[group]Run kubectl apply -f manifests/currencyservice.yaml
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:42:23.2835306Z [36;1mkubectl apply -f manifests/currencyservice.yaml[0m
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:42:23.2856271Z shell: /usr/bin/bash -e {0}
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:42:23.2856691Z ##[endgroup]
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:42:23.6992830Z service/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:42:23.7668414Z The Deployment "currencyservice" is invalid: spec.replicas: Invalid value: -1: must be greater than or equal to 0
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:42:23.7669352Z serviceaccount/currencyservice unchanged
+build-test-deploy	Deploy no cluster Kubernetes	2026-08-24T22:42:23.7784047Z ##[error]Process completed with exit code 1.
